@@ -63,7 +63,7 @@ int InputNumber()
 	int num;
 	
 	while(fflush(stdin), !scanf("%d", &num))
-		printf("Ошибка ввода, попробуйте еще раз: ");
+		printf("РћС€РёР±РєР° РІРІРѕРґР°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·: ");
 	
 	return num;
 }
@@ -73,7 +73,7 @@ double InputDouble()
 	double num;
 	
 	while(fflush(stdin), !scanf("%lg", &num))
-		printf("Ошибка ввода, попробуйте еще раз: ");
+		printf("РћС€РёР±РєР° РІРІРѕРґР°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·: ");
 	
 	return num;
 }
