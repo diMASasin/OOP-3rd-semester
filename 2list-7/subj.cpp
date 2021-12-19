@@ -4,21 +4,10 @@
 #include <stdexcept>
 #include"subj.h"                        
 
-Base::Base(List* list) : Node(list)
-{
-}
-
-Auto::Auto(List* list) : Base(list)
-{	
-}
-
-Aircraft::Aircraft(List* list) : Base(list)
-{	
-}
-
-Ship::Ship(List* list) : Base(list)
-{
-}
+Base::Base(List* list) : Node(list){}
+Auto::Auto(List* list) : Base(list){}
+Aircraft::Aircraft(List* list) : Base(list){}
+Ship::Ship(List* list) : Base(list){}
 
 const char* const Auto::GetType()
 {
@@ -38,43 +27,43 @@ const char* const Ship::GetType()
 void Base::Print()
 {	
 	printf("%s:\n", GetType());
-	printf("Модель: %s\n", model);
-	printf("Расход топлива: %lg\n", fuelConsumption);
-	printf("Максимальная скорость: %lg\n", maxSpeed);
-	printf("Максимальная дальность движения: %lg\n", rangeOfMovement);
-	printf("Количество мест: %d\n", maxPassengerNumber);
-	printf("Максимальный вес багажа: %lg\n", maxBaggageWeight);
+	printf("РњРѕРґРµР»СЊ: %s\n", model);
+	printf("Р Р°СЃС…РѕРґ С‚РѕРїР»РёРІР°: %lg\n", fuelConsumption);
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: %lg\n", maxSpeed);
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР°Р»СЊРЅРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ: %lg\n", rangeOfMovement);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚: %d\n", maxPassengerNumber);
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ Р±Р°РіР°Р¶Р°: %lg\n", maxBaggageWeight);
 }
   
 void Auto::Print()
 {	
 	Base::Print();
-	printf("Бренд: %s\n", brand);
-	printf("Цвет: %s\n\n", color);
+	printf("Р‘СЂРµРЅРґ: %s\n", brand);
+	printf("Р¦РІРµС‚: %s\n\n", color);
 }
   
 void Aircraft::Print()
 {	
 	Base::Print();
-	printf("Количество членов экипажа: %d\n", numberOfCrewMembers);
-	printf("Количество двигателей: %d\n", numberOfEngines);
-	printf("Максимальная высота: %lg\n\n", maxHeight);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р»РµРЅРѕРІ СЌРєРёРїР°Р¶Р°: %d\n", numberOfCrewMembers);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРІРёРіР°С‚РµР»РµР№: %d\n", numberOfEngines);
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РІС‹СЃРѕС‚Р°: %lg\n\n", maxHeight);
 }
   
 void Ship::Print()
 {
 	Base::Print();	
-	printf("Количество членов экипажа: %d\n", numberOfCrewMembers);
-	printf("Количество двигателей: %d\n", numberOfEngines);
-	printf("Название: %s\n", name);
-	printf("Порт приписки: %s\n\n", homePort);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р»РµРЅРѕРІ СЌРєРёРїР°Р¶Р°: %d\n", numberOfCrewMembers);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРІРёРіР°С‚РµР»РµР№: %d\n", numberOfEngines);
+	printf("РќР°Р·РІР°РЅРёРµ: %s\n", name);
+	printf("РџРѕСЂС‚ РїСЂРёРїРёСЃРєРё: %s\n\n", homePort);
 }
 
 Base* Base::Create(ItemType type, List *list)
 {
 	if(!list)
 	{
-		printf("Список не создан.\n");
+		printf("РЎРїРёСЃРѕРє РЅРµ СЃРѕР·РґР°РЅ.\n");
 		system("pause");
 		return NULL;
 	}
@@ -92,7 +81,7 @@ Base* Base::Create(ItemType type, List *list)
       		p = new Ship(list);
       		break;
       	default:
-      		printf("Ошибка типа данных!\n");
+      		printf("РћС€РёР±РєР° С‚РёРїР° РґР°РЅРЅС‹С…!\n");
       		system("pause");
       		return NULL;
    }
@@ -101,50 +90,50 @@ Base* Base::Create(ItemType type, List *list)
 
 void Base::Input()
 {	
-	printf("Модель: ");
+	printf("РњРѕРґРµР»СЊ: ");
 	scanf("%s", model);
-	printf("Расход топлива: ");
+	printf("Р Р°СЃС…РѕРґ С‚РѕРїР»РёРІР°: ");
 	fuelConsumption = InputDouble();
-	printf("Максимальная скорость: ");
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: ");
 	maxSpeed = InputDouble();
-	printf("Максимальная дальность движения: ");
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР°Р»СЊРЅРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ: ");
 	rangeOfMovement = InputDouble();
-	printf("Количество мест: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚: ");
 	maxPassengerNumber = InputNumber();
-	printf("Максимальный вес багажа: ");
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ Р±Р°РіР°Р¶Р°: ");
 	maxBaggageWeight = InputDouble();
 }
 
 void Auto::Input()
 {
 	Base::Input();
-	printf("Бренд: ");
+	printf("Р‘СЂРµРЅРґ: ");
 	scanf("%s", brand);
-	printf("Цвет: ");
+	printf("Р¦РІРµС‚: ");
 	scanf("%s", color);
 }
   
 void Aircraft::Input()
 {
 	Base::Input();	
-	printf("Количество членов экипажа: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р»РµРЅРѕРІ СЌРєРёРїР°Р¶Р°: ");
 	numberOfCrewMembers = InputNumber();
-	printf("Количество двигателей: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРІРёРіР°С‚РµР»РµР№: ");
 	numberOfEngines = InputDouble();
-	printf("Максимальная высота: ");
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РІС‹СЃРѕС‚Р°: ");
 	maxHeight = InputDouble();
 }
   
 void Ship::Input()
 {
 	Base::Input();
-	printf("Количество членов экипажа: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р»РµРЅРѕРІ СЌРєРёРїР°Р¶Р°: ");
 	numberOfCrewMembers = InputNumber();
-	printf("Количество двигателей: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРІРёРіР°С‚РµР»РµР№: ");
 	numberOfEngines = InputDouble();
-	printf("Название: ");
+	printf("РќР°Р·РІР°РЅРёРµ: ");
 	scanf("%s", name);
-	printf("Порт приписки: ");
+	printf("РџРѕСЂС‚ РїСЂРёРїРёСЃРєРё: ");
 	scanf("%s", homePort);
 }
 
@@ -165,7 +154,7 @@ void SubjList::SortByRangeOfMovement()
 {
 	if(!head)
 	{
-		printf("Список пуст.\n\n");
+		printf("РЎРїРёСЃРѕРє РїСѓСЃС‚.\n\n");
 		return;
 	}
 		
@@ -200,7 +189,7 @@ void SubjList::SortByMaxSpeed()
 {
 	if(!head)
 	{
-		printf("Список пуст.\n\n");
+		printf("РЎРїРёСЃРѕРє РїСѓСЃС‚.\n\n");
 		return;
 	}
 		
@@ -217,11 +206,11 @@ void SubjList::FindByMaxPassengerNumber()
 {
 	if(!head)
 	{
-		printf("Список пуст.\n\n");
+		printf("РЎРїРёСЃРѕРє РїСѓСЃС‚.\n\n");
 		return;
 	}
 		
-	printf("Введите искомое число мест: ");
+	printf("Р’РІРµРґРёС‚Рµ РёСЃРєРѕРјРѕРµ С‡РёСЃР»Рѕ РјРµСЃС‚: ");
 	int num = InputNumber();
 	
 	Base *i;
@@ -236,12 +225,12 @@ void SubjList::FindByMaxWeight()
 {
 	if(!head)
 	{
-		printf("Список пуст.\n\n");
+		printf("РЎРїРёСЃРѕРє РїСѓСЃС‚.\n\n");
 		return;
 	}
 	
 	int n, i;
-	printf("Введите искомый максимально допустимый вес: ");
+	printf("Р’РІРµРґРёС‚Рµ РёСЃРєРѕРјС‹Р№ РјР°РєСЃРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјС‹Р№ РІРµСЃ: ");
 	int num = InputNumber();
 	
 	n = Count();
