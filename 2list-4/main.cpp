@@ -11,7 +11,7 @@ const string * TypeName[4];
 
 class DebugList : public List
 {
-   public:
+    public:
     void PrintList()
     {
         int i;
