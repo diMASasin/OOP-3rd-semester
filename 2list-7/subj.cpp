@@ -5,8 +5,11 @@
 #include"subj.h"                        
 
 Base::Base(List* list) : Node(list){}
+
 Auto::Auto(List* list) : Base(list){}
+
 Aircraft::Aircraft(List* list) : Base(list){}
+
 Ship::Ship(List* list) : Base(list){}
 
 const char* const Auto::GetType()
