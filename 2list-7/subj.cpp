@@ -258,4 +258,3 @@ bool Base::operator > (const Base &b)
 {
 	return maxSpeed > b.maxSpeed;
 }
-
