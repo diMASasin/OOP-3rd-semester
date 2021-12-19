@@ -15,8 +15,8 @@ int main()
 	
 	while(key != 0)
 	{
-		printf("1. Äîáàâèòü óçåë\n2. Âûâåñòè ñïèñîê\n3. Ðàçìåð ñïèñêà\n4. Âûâåñòè óçåë ïî èíäåêñó\n5. Èñêëþ÷èòü ýëåìåíò\n"
-		"6. Óäàëèòü óçåë\n7. Ïîëó÷èòü èíäåêñ\n8. Âñòàâèòü ýëåìåíò\n9. Î÷èñòèòü ñïèñîê\n0. Âûõîä\n\n> ");
+		printf("1. Добавить узел\n2. Вывести список\n3. Размер списка\n4. Вывести узел по индексу\n5. Исключить элемент\n"
+		"6. Удалить узел\n7. Получить индекс\n8. Вставить элемент\n9. Очистить список\n0. Выход\n\n> ");
 		scanf("%d", &key);				
 		system("cls");
 		
@@ -27,7 +27,7 @@ int main()
 				
 				Add(list, element);
 				system("cls");
-				printf("Óçåë äîáàâëåí â êîíåö ñïèñêà.\n\n");
+				printf("Узел добавлен в конец списка.\n\n");
 				break;
 			case 2:				
 				PrintList(list);
@@ -36,10 +36,10 @@ int main()
 				break;
 			case 3:
 				nodeCount = Count(list);
-				printf("Êîëè÷åñòâî óçëîâ â ñïèñêå: %d\n\n", nodeCount);
+				printf("Количество узлов в списке: %d\n\n", nodeCount);
 				break;
 			case 4:
-				printf("Óçåë ïîä êàêèì èíäåêñîì âû õîòèòå ïîëó÷èòü?\n> ");
+				printf("Узел под каким индексом вы хотите получить?\n> ");
 				index = InputNumber();
 						
 				element = GetItem(list, index);
@@ -48,47 +48,47 @@ int main()
 				system("cls");
 				break;
 			case 5:
-				printf("Óçåë ïîä êàêèì èíäåêñîì âû õîòèòå èñêëþ÷èòü?\n> ");
+				printf("Узел под каким индексом вы хотите исключить?\n> ");
 				index = InputNumber();
 				
 				Remove(list, index);
 				system("cls");
-				printf("Óçåë èñêëþ÷åí.\n\n");
+				printf("Узел исключен.\n\n");
 				break;
 			case 6:
-				printf("Óçåë ïîä êàêèì èíäåêñîì âû õîòèòå óäàëèòü?\n> ");
+				printf("Узел под каким индексом вы хотите удалить?\n> ");
 				index = InputNumber();
 				
 				Delete(list, index);
 				system("cls");
-				printf("Óçåë óäàëåí.\n\n");
+				printf("Узел удален.\n\n");
 				break;
 			case 7: 
-				printf("Èíäåêñ óçëà ïîä êàêèì àäðåñîì âû õîòèòå ïîëó÷èòü?\n> ");
+				printf("Индекс узла под каким адресом вы хотите получить?\n> ");
 				scanf("%p", &element);
 				index = GetIndex(list, element);
 				
-				printf("Èíäåêñ ýëåìåíòà: %d\n\n", index);
+				printf("Индекс элемента: %d\n\n", index);
 				break;
 			case 8:
-				printf("Ïîä êàêèì èíäåêñîì áóäåò íîâûé ýëåìåíò?\n> ");
+				printf("Под каким индексом будет новый элемент?\n> ");
 				nodeCount = Count(list);
 				index = InputNumber();
 				
 				element = malloc(sizeof(Node));
 				Insert(list, element, index);
 				system("cls");
-				printf("Óçåë äîáàâëåí.\n\n");
+				printf("Узел добавлен.\n\n");
 				break;
 			case 9:
 				Clear(list);
 				system("cls");
-				printf("Ñïèñîê î÷èùåí.\n\n");
+				printf("Список очищен.\n\n");
 				break;
 			case 0:
 				break;
 			default:
-				printf("Îøèáêà ââîäà.\n");
+				printf("Ошибка ввода.\n");
 				break;
 		}
 	}
