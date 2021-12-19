@@ -42,4 +42,3 @@ class List
 	void SearchByNumberOfSeats(List *list);
 	void SearchByBaggageWeight(List *list);
 };
-//
