@@ -109,12 +109,12 @@ void PrintTransport(Base *p)
 		return;
 	}
 		
-	printf("Модель: %s\n", p->model);
-	printf("Расход топлива: %lg\n", p->fuelConsumption);
-	printf("Максимальная скорость: %lg\n", p->maxSpeed);
-	printf("Максимальная дальность движения: %lg\n", p->rangeOfMovement);
-	printf("Количество мест: %d\n", p->maxPassengerNumber);
-	printf("Максимальный вес багажа: %lg\n", p->maxBaggageWeight);
+	printf("РњРѕРґРµР»СЊ: %s\n", p->model);
+	printf("Р Р°СЃС…РѕРґ С‚РѕРїР»РёРІР°: %lg\n", p->fuelConsumption);
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: %lg\n", p->maxSpeed);
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР°Р»СЊРЅРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ: %lg\n", p->rangeOfMovement);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚: %d\n", p->maxPassengerNumber);
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ Р±Р°РіР°Р¶Р°: %lg\n", p->maxBaggageWeight);
 }
   
 void PrintAuto(Auto *p)
@@ -126,8 +126,8 @@ void PrintAuto(Auto *p)
 	}
 		
 	PrintTransport((Base*)p);
-	printf("Бренд: %s\n", p->brand);
-	printf("Цвет: %s\n\n", p->color);
+	printf("Р‘СЂРµРЅРґ: %s\n", p->brand);
+	printf("Р¦РІРµС‚: %s\n\n", p->color);
 }
   
 void PrintAircraft(Aircraft *p)
@@ -139,9 +139,9 @@ void PrintAircraft(Aircraft *p)
 	}
 		
 	PrintTransport((Base*)p);
-	printf("Количество членов экипажа: %d\n", p->numberOfCrewMembers);
-	printf("Количество двигателей: %d\n", p->numberOfEngines);
-	printf("Максимальная высота: %lg\n\n", p->maxHeight);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р»РµРЅРѕРІ СЌРєРёРїР°Р¶Р°: %d\n", p->numberOfCrewMembers);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРІРёРіР°С‚РµР»РµР№: %d\n", p->numberOfEngines);
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РІС‹СЃРѕС‚Р°: %lg\n\n", p->maxHeight);
 }
   
 void PrintShip(Ship *p)
@@ -153,10 +153,10 @@ void PrintShip(Ship *p)
 	}
 		
 	PrintTransport((Base*)p);
-	printf("Количество членов экипажа: %d\n", p->numberOfCrewMembers);
-	printf("Количество двигателей: %d\n", p->numberOfEngines);
-	printf("Название: %s\n", p->name);
-	printf("Порт приписки: %s\n\n", p->homePort);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р»РµРЅРѕРІ СЌРєРёРїР°Р¶Р°: %d\n", p->numberOfCrewMembers);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРІРёРіР°С‚РµР»РµР№: %d\n", p->numberOfEngines);
+	printf("РќР°Р·РІР°РЅРёРµ: %s\n", p->name);
+	printf("РџРѕСЂС‚ РїСЂРёРїРёСЃРєРё: %s\n\n", p->homePort);
 }
 
 void InputTransport(Base* p)
@@ -167,17 +167,17 @@ void InputTransport(Base* p)
 		return;
 	}
 		
-	printf("Модель: ");
+	printf("РњРѕРґРµР»СЊ: ");
 	scanf("%s", p->model);
-	printf("Расход топлива: ");
+	printf("Р Р°СЃС…РѕРґ С‚РѕРїР»РёРІР°: ");
 	p->fuelConsumption = InputDouble(NULL);
-	printf("Максимальная скорость: ");
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ: ");
 	p->maxSpeed = InputDouble();
-	printf("Максимальная дальность движения: ");
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР°Р»СЊРЅРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ: ");
 	p->rangeOfMovement = InputDouble();
-	printf("Количество мест: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚: ");
 	p->maxPassengerNumber = InputNumber();
-	printf("Максимальный вес багажа: ");
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ Р±Р°РіР°Р¶Р°: ");
 	p->maxBaggageWeight = InputDouble();
 }
 
@@ -191,9 +191,9 @@ void InputAuto(Auto *p)
 		
 	p->type = 1;
 	InputTransport((Base*)p);
-	printf("Бренд: ");
+	printf("Р‘СЂРµРЅРґ: ");
 	scanf("%s", p->brand);
-	printf("Цвет: ");
+	printf("Р¦РІРµС‚: ");
 	scanf("%s", p->color);
 }
   
@@ -207,11 +207,11 @@ void InputAircraft(Aircraft *p)
 		
 	p->type = 2;
 	InputTransport((Base*)p);	
-	printf("Количество членов экипажа: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р»РµРЅРѕРІ СЌРєРёРїР°Р¶Р°: ");
 	p->numberOfCrewMembers = InputNumber();
-	printf("Количество двигателей: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРІРёРіР°С‚РµР»РµР№: ");
 	p->numberOfEngines = InputDouble();
-	printf("Максимальная высота: ");
+	printf("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РІС‹СЃРѕС‚Р°: ");
 	p->maxHeight = InputDouble();
 }
   
@@ -225,13 +225,13 @@ void InputShip(Ship *p)
 		
 	p->type = 3;
 	InputTransport((Base*)p);
-	printf("Количество членов экипажа: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р»РµРЅРѕРІ СЌРєРёРїР°Р¶Р°: ");
 	p->numberOfCrewMembers = InputNumber();
-	printf("Количество двигателей: ");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРІРёРіР°С‚РµР»РµР№: ");
 	p->numberOfEngines = InputDouble();
-	printf("Название: ");
+	printf("РќР°Р·РІР°РЅРёРµ: ");
 	scanf("%s", p->name);
-	printf("Порт приписки: ");
+	printf("РџРѕСЂС‚ РїСЂРёРїРёСЃРєРё: ");
 	scanf("%s", p->homePort);
 }
 
@@ -296,7 +296,7 @@ void SortByRangeOfMovement(List *l)
 {
 	if(!l->head || !l)
 	{
-		printf("Список пуст.\n\n");
+		printf("РЎРїРёСЃРѕРє РїСѓСЃС‚.\n\n");
 		return;
 	}
 		
@@ -331,7 +331,7 @@ void SortByMaxSpeed(List *l)
 {
 	if(!l->head || !l)
 	{
-		printf("Список пуст.\n\n");
+		printf("РЎРїРёСЃРѕРє РїСѓСЃС‚.\n\n");
 		return;
 	}
 		
@@ -366,11 +366,11 @@ void FindByMaxPassengerNumber(const List *l)
 {
 	if(!l->head || !l)
 	{
-		printf("Список пуст.\n\n");
+		printf("РЎРїРёСЃРѕРє РїСѓСЃС‚.\n\n");
 		return;
 	}
 		
-	printf("Введите искомое число мест: ");
+	printf("Р’РІРµРґРёС‚Рµ РёСЃРєРѕРјРѕРµ С‡РёСЃР»Рѕ РјРµСЃС‚: ");
 	int num = InputNumber();
 	
 	Base *i;
@@ -385,11 +385,11 @@ void FindByMaxWight(const List *l)
 {
 	if(!l->head || !l)
 	{
-		printf("Список пуст.\n\n");
+		printf("РЎРїРёСЃРѕРє РїСѓСЃС‚.\n\n");
 		return;
 	}
 		
-	printf("Введите искомый максимально допустимый вес: ");
+	printf("Р’РІРµРґРёС‚Рµ РёСЃРєРѕРјС‹Р№ РјР°РєСЃРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјС‹Р№ РІРµСЃ: ");
 	int num = InputNumber();
 	
 	Base *i;
