@@ -100,7 +100,6 @@ int main()
 				printf("Узел под каким индексом вы хотите получить?\n> ");
 				index = InputNumber();
 						
-//				element = list.GetItem(index);
 				element = &list[index];
 				if(!element)
 				{
