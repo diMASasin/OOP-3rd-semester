@@ -5,9 +5,9 @@ class List;
 
 class Node 
 {
-	friend class List;
-	friend class DebugList;
-	friend class SubjList;
+    friend class List;
+    friend class DebugList;
+    friend class SubjList;
 	
 private:
     Node* prev;
@@ -15,22 +15,22 @@ private:
     List* list;
     
 public:
-	Node(List* list);
-	virtual ~Node();
+    Node(List* list);
+    virtual ~Node();
 };
 
 class List
 {	
-	friend class DebugList;
-	friend class SubjList;
+    friend class DebugList;
+    friend class SubjList;
 	
-	private:
+    private:
     Node* head;
     Node* tail;
 
-	public:
-	List();
-	~List();
+    public:
+    List();
+    ~List();
     List* CreateList();
     void Add(Node* element);
     void Insert(Node* newElement, int index);
