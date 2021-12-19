@@ -4,28 +4,28 @@
 using namespace std;
 
 
-	Node::Node(List* list)
-	{
-		prev = NULL;
-		next = NULL;
-		this->list = list;
-	}
+    Node::Node(List* list)
+    {
+	prev = NULL;
+	next = NULL;
+	this->list = list;
+    }
 	
-	Node::~Node()
-	{
-		list->Remove(this);
-	}
+    Node::~Node()
+    {
+	list->Remove(this);
+    }
 
-	List::List()
-	{
-		head = NULL;
-		tail = NULL;
-	}
+    List::List()
+    {
+	head = NULL;
+	tail = NULL;
+    }
 	
-	List::~List()
-	{
-		Clear();
-	}
+    List::~List()
+    {
+	Clear();
+    }
 	
     List* List::CreateList()
     {
@@ -43,7 +43,7 @@ using namespace std;
     		return;
     	
         if (head == NULL && tail == NULL) 
-		{
+	{
             head = element;
             tail = element;
             return;
@@ -64,7 +64,7 @@ using namespace std;
         item = GetItem(index);
 
         if (item) 
-		{
+	{
             if (item->prev != NULL)
                 item->prev->next = newElement;
             else
@@ -75,7 +75,7 @@ using namespace std;
             item->prev = newElement;
         }
         else 
-		{
+	{
             Add(newElement);
         }
     }
@@ -90,7 +90,7 @@ using namespace std;
 			return count;
 		
         while (currentNode) 
-		{
+	{
             count++;
             currentNode = currentNode->next;
         }
@@ -111,10 +111,10 @@ using namespace std;
         for (i = 0; i < index; i++)
         {
         	if(!item)
-				return NULL;
+			return NULL;
 				        	
         	item = item->next;
-		}  
+	}  
 
         return item;
     }
@@ -188,7 +188,7 @@ using namespace std;
             Delete(0);
     }
     
-    int InputNumber()
+    	int InputNumber()
 	{
 		int num;
 	
