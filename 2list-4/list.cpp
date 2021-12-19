@@ -6,7 +6,6 @@ using namespace std;
 const string TypeName[4]= 
             { "(unknown)", "Auto", "Aircraft", "Ship" };
 
-
 	Node::Node(List* list)
 	{
 		prev = NULL;
@@ -28,7 +27,7 @@ const string TypeName[4]=
 	List::~List()
 	{
 		Clear();
-	}
+   	}
 	
     List* List::CreateList()
     {
@@ -46,7 +45,7 @@ const string TypeName[4]=
     		return;
     	
         if (head == NULL && tail == NULL) 
-		{
+	{
             head = element;
             tail = element;
             return;
@@ -191,4 +190,3 @@ const string TypeName[4]=
         while (head)
             Delete(0);
     }
-                                  
