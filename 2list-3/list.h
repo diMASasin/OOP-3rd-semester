@@ -12,7 +12,7 @@ struct _List
 	Node* head;
 	Node* tail;
 };
-
+ 
 void Add(List *list, Node *element);
 int Delete(List *list, int index);
 int Count(const List *list);
