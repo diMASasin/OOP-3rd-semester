@@ -22,7 +22,7 @@ class DebugList : public List
         cout << "#\tp" << "\t\t" << "prev" << "\t\t" << "next" << endl;
 
         for (i = 0; item != NULL; i++) 
-		{
+	{
             PrintNode(item, i);
             item = item->next;
         }
