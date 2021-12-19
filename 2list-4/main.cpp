@@ -55,7 +55,7 @@ class DebugList : public List
 		int num;
 	
 		while(fflush(stdin), !scanf("%d", &num))
-			printf("Ошибка ввода, попробуйте еще раз: ");
+			printf("РћС€РёР±РєР° РІРІРѕРґР°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·: ");
 	
 		return num;
 	}
@@ -71,8 +71,8 @@ int main()
 	int index;
 	int key = 0;
 	const char *menu[NUM_OF_MENU_ELEMENTS + 1] =
-        { "(none)", "Добавить узел", "Вывести список", "Размер списка", "Вывести узел по индексу", "Исключить элемент",
-		"Удалить узел", "Получить индекс", "Вставить элемент", "Очистить список", "Выход"};
+        { "(none)", "Р”РѕР±Р°РІРёС‚СЊ СѓР·РµР»", "Р’С‹РІРµСЃС‚Рё СЃРїРёСЃРѕРє", "Р Р°Р·РјРµСЂ СЃРїРёСЃРєР°", "Р’С‹РІРµСЃС‚Рё СѓР·РµР» РїРѕ РёРЅРґРµРєСЃСѓ", "РСЃРєР»СЋС‡РёС‚СЊ СЌР»РµРјРµРЅС‚",
+		"РЈРґР°Р»РёС‚СЊ СѓР·РµР»", "РџРѕР»СѓС‡РёС‚СЊ РёРЅРґРµРєСЃ", "Р’СЃС‚Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚", "РћС‡РёСЃС‚РёС‚СЊ СЃРїРёСЃРѕРє", "Р’С‹С…РѕРґ"};
 	
 	list = *(DebugList*)list.CreateList();
 	
@@ -87,7 +87,7 @@ int main()
 				element = new Node(((List*)&list));
 				list.Add(element);
 				system("cls");
-				printf("Узел добавлен в конец списка.\n\n");
+				printf("РЈР·РµР» РґРѕР±Р°РІР»РµРЅ РІ РєРѕРЅРµС† СЃРїРёСЃРєР°.\n\n");
 				break;
 			case 2:				
 				list.PrintList();
@@ -96,10 +96,10 @@ int main()
 				break;
 			case 3:
 				nodeCount = list.Count();
-				printf("Количество узлов в списке: %d\n\n", nodeCount);
+				printf("РљРѕР»РёС‡РµСЃС‚РІРѕ СѓР·Р»РѕРІ РІ СЃРїРёСЃРєРµ: %d\n\n", nodeCount);
 				break;
 			case 4:
-				printf("Узел под каким индексом вы хотите получить?\n> ");
+				printf("РЈР·РµР» РїРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ РїРѕР»СѓС‡РёС‚СЊ?\n> ");
 				index = list.InputNumber();
 						
 				element = list.GetItem(index);
@@ -109,50 +109,50 @@ int main()
 				system("cls");
 				break;
 			case 5:
-				printf("Узел под каким индексом вы хотите исключить?\n> ");
+				printf("РЈР·РµР» РїРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ РёСЃРєР»СЋС‡РёС‚СЊ?\n> ");
 				index = list.InputNumber();
 				
 				list.Remove(index);
 				system("cls");
-				printf("Узел исключен.\n\n");
+				printf("РЈР·РµР» РёСЃРєР»СЋС‡РµРЅ.\n\n");
 				break;
 			case 6:
-				printf("Узел под каким индексом вы хотите удалить?\n> ");
+				printf("РЈР·РµР» РїРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ?\n> ");
 				index = list.InputNumber();
 				
 				list.Delete(index);
 				system("cls");
-				printf("Узел удален.\n\n");
+				printf("РЈР·РµР» СѓРґР°Р»РµРЅ.\n\n");
 				break;
 			case 7: 
-				printf("Индекс узла под каким адресом вы хотите получить?\n> ");
+				printf("РРЅРґРµРєСЃ СѓР·Р»Р° РїРѕРґ РєР°РєРёРј Р°РґСЂРµСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ РїРѕР»СѓС‡РёС‚СЊ?\n> ");
 				scanf("%p", &element);
 				index = list.GetIndex(element);
 				
 				if(index < 0)
-					printf("Такого элемента не существует.\n\n");
+					printf("РўР°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.\n\n");
 				else
-					printf("Индекс элемента: %d\n\n", index);	
+					printf("РРЅРґРµРєСЃ СЌР»РµРјРµРЅС‚Р°: %d\n\n", index);	
 				break;
 			case 8:
-				printf("Под каким индексом будет новый элемент?\n> ");
+				printf("РџРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј Р±СѓРґРµС‚ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚?\n> ");
 				nodeCount = list.Count();
 				index = list.InputNumber();
 				
 				element = new Node((List*)&list);
 				list.Insert(element, index);
 				system("cls");
-				printf("Узел добавлен.\n\n");
+				printf("РЈР·РµР» РґРѕР±Р°РІР»РµРЅ.\n\n");
 				break;
 			case 9:
 				list.Clear();
 				system("cls");
-				printf("Список очищен.\n\n");
+				printf("РЎРїРёСЃРѕРє РѕС‡РёС‰РµРЅ.\n\n");
 				break;
 			case 10:
 				break;
 			default:
-				printf("Ошибка ввода.\n");
+				printf("РћС€РёР±РєР° РІРІРѕРґР°.\n");
 				break;
 		}
 	}
