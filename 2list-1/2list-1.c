@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
+
 typedef struct _Node Node;
 
 struct _Node
@@ -89,7 +90,7 @@ int InputNumber()
 	int num;
 	
 	while(fflush(stdin), !scanf("%d", &num))
-		printf("РћС€РёР±РєР° РІРІРѕРґР°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·: ");
+		printf("Ошибка ввода, попробуйте еще раз: ");
 	
 	return num;
 }
@@ -240,8 +241,8 @@ int main()
 	
 	while(key != 0)
 	{
-		printf("1. Р”РѕР±Р°РІРёС‚СЊ СѓР·РµР»\n2. Р’С‹РІРµСЃС‚Рё СЃРїРёСЃРѕРє\n3. Р Р°Р·РјРµСЂ СЃРїРёСЃРєР°\n4. Р’С‹РІРµСЃС‚Рё СѓР·РµР» РїРѕ РёРЅРґРµРєСЃСѓ\n5. РСЃРєР»СЋС‡РёС‚СЊ СЌР»РµРјРµРЅС‚\n"
-		"6. РЈРґР°Р»РёС‚СЊ СѓР·РµР»\n7. РџРѕР»СѓС‡РёС‚СЊ РёРЅРґРµРєСЃ\n8. Р’СЃС‚Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚\n9. РћС‡РёСЃС‚РёС‚СЊ СЃРїРёСЃРѕРє\n0. Р’С‹С…РѕРґ\n\n> ");
+		printf("1. Добавить узел\n2. Вывести список\n3. Размер списка\n4. Вывести узел по индексу\n5. Исключить элемент\n"
+		"6. Удалить узел\n7. Получить индекс\n8. Вставить элемент\n9. Очистить список\n0. Выход\n\n> ");
 		scanf("%d", &key);				
 		system("cls");
 		
@@ -252,7 +253,7 @@ int main()
 				
 				Add(list, element);
 				system("cls");
-				printf("РЈР·РµР» РґРѕР±Р°РІР»РµРЅ РІ РєРѕРЅРµС† СЃРїРёСЃРєР°.\n\n");
+				printf("Узел добавлен в конец списка.\n\n");
 				break;
 			case 2:				
 				PrintList(list);
@@ -261,10 +262,10 @@ int main()
 				break;
 			case 3:
 				nodeCount = Count(list);
-				printf("РљРѕР»РёС‡РµСЃС‚РІРѕ СѓР·Р»РѕРІ РІ СЃРїРёСЃРєРµ: %d\n\n", nodeCount);
+				printf("Количество узлов в списке: %d\n\n", nodeCount);
 				break;
 			case 4:
-				printf("РЈР·РµР» РїРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ РїРѕР»СѓС‡РёС‚СЊ?\n> ");
+				printf("Узел под каким индексом вы хотите получить?\n> ");
 				index = InputNumber();
 						
 				element = GetItem(list, index);
@@ -273,47 +274,47 @@ int main()
 				system("cls");
 				break;
 			case 5:
-				printf("РЈР·РµР» РїРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ РёСЃРєР»СЋС‡РёС‚СЊ?\n> ");
+				printf("Узел под каким индексом вы хотите исключить?\n> ");
 				index = InputNumber();
 				
 				Remove(list, index);
 				system("cls");
-				printf("РЈР·РµР» РёСЃРєР»СЋС‡РµРЅ.\n\n");
+				printf("Узел исключен.\n\n");
 				break;
 			case 6:
-				printf("РЈР·РµР» РїРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ?\n> ");
+				printf("Узел под каким индексом вы хотите удалить?\n> ");
 				index = InputNumber();
 				
 				Delete(list, index);
 				system("cls");
-				printf("РЈР·РµР» СѓРґР°Р»РµРЅ.\n\n");
+				printf("Узел удален.\n\n");
 				break;
 			case 7: 
-				printf("РРЅРґРµРєСЃ СѓР·Р»Р° РїРѕРґ РєР°РєРёРј Р°РґСЂРµСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ РїРѕР»СѓС‡РёС‚СЊ?\n> ");
+				printf("Индекс узла под каким адресом вы хотите получить?\n> ");
 				scanf("%p", &element);
 				index = GetIndex(list, element);
 				
-				printf("РРЅРґРµРєСЃ СЌР»РµРјРµРЅС‚Р°: %d\n\n", index);
+				printf("Индекс элемента: %d\n\n", index);
 				break;
 			case 8:
-				printf("РџРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј Р±СѓРґРµС‚ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚?\n> ");
+				printf("Под каким индексом будет новый элемент?\n> ");
 				nodeCount = Count(list);
 				index = InputNumber();
 				
 				element = malloc(sizeof(Node));
 				Insert(list, element, index);
 				system("cls");
-				printf("РЈР·РµР» РґРѕР±Р°РІР»РµРЅ.\n\n");
+				printf("Узел добавлен.\n\n");
 				break;
 			case 9:
 				Clear(list);
 				system("cls");
-				printf("РЎРїРёСЃРѕРє РѕС‡РёС‰РµРЅ.\n\n");
+				printf("Список очищен.\n\n");
 				break;
 			case 0:
 				break;
 			default:
-				printf("РћС€РёР±РєР° РІРІРѕРґР°.\n");
+				printf("Ошибка ввода.\n");
 				break;
 		}
 	}
