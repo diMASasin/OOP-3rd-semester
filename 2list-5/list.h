@@ -3,46 +3,43 @@
 
 class List;
 
-class Node 
+class Node
 {
-    friend class List;
-    friend class DebugList;
-    friend class SubjList;
-	
+	friend class List;
+
 private:
-    Node* prev;
-    Node* next;
-    List* list;
-    
+	Node* prev;
+	Node* next;
+	List* list;
+
 public:
-    Node(List* list);
-    ~Node();
+	Node* getNext() const;
+	Node* getPrev() const;
+	List* IsInList() const;
+	Node();
+	~Node();
 };
 
 class List
-{	
-    friend class DebugList;
-    friend class SubjList;
-	
-   private:
-    Node* head;
-    Node* tail;
+{
+private:
+	Node* head;
+	Node* tail;
 
-    public:
-    List();
-    ~List();
-    List* CreateList();
-    void Add(Node* element);
-    void Insert(Node* newElement, int index);
-    int Count();
-    Node* GetItem(int index);
-    Node* Remove(int index);
-    Node* Remove(Node* item);
-    int Delete(int index);
-    void Print();
-    int GetIndex(Node* element);
-    void Clear();
+public:
+	List();
+	~List();
+	Node* getHead() const;
+	Node* getTail() const;
+	List* CreateList();
+	void Add(Node* element);
+	void Insert(Node* newElement, int index);
+	int Count();
+	Node* GetItem(int index);
+	Node* Remove(int index);
+	Node* Remove(Node* item);
+	int Delete(int index);
+	void Print();
+	int GetIndex(Node* element);
+	void Clear();
 };
-
-int InputNumber();
-double InputDouble();

@@ -1,29 +1,33 @@
-class Node 
+class List;
+
+class Node
 {
 	friend class List;
-	friend class DebugList;
-	
+
 private:
 	Node* prev;
-   	Node* next;
+	Node* next;
 	List* list;
-    
+
 public:
-	Node(List* list);
+	Node* getNext() const;
+	Node* getPrev() const;
+	List* IsInList() const;
+	Node();
 	~Node();
 };
 
 class List
-{	
-	friend class DebugList;
-	
-	private:
+{
+private:
 	Node* head;
 	Node* tail;
 
-	public:
+public:
 	List();
 	~List();
+	Node* getHead() const;
+	Node* getTail() const;
 	List* CreateList();
 	void Add(Node* element);
 	void Insert(Node* newElement, int index);
@@ -35,8 +39,4 @@ class List
 	void Print();
 	int GetIndex(Node* element);
 	void Clear();
-	void SortBySpeed(List *list);
-	void SortByRangeOfMovement(List *list);
-	void SearchByNumberOfSeats(List *list);
-	void SearchByBaggageWeight(List *list);
 };

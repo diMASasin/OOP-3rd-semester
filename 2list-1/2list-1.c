@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<string.h>
 
-
 typedef struct _Node Node;
 
 struct _Node
