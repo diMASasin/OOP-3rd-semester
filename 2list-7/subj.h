@@ -1,33 +1,33 @@
 #include"list.h"
 
-typedef enum _ItemType { None, itAuto, itAircraft, itShip } ItemType;
-const char* const TypeName[4] = { "(unknown)", "Auto", "Aircraft", "Ship" };
+typedef enum _ItemType{None, itAuto, itAircraft, itShip} ItemType;
+const char* const TypeName[4] = { "(unknown)", "Auto", "Aircraft", "Ship" };  
 
 class Base : public Node
 {
 	friend class SubjList;
-
-private:
+	
+	private:
 	char model[MAX_STRING_LENGTH];
 	double fuelConsumption;
 	double maxSpeed;
 	double rangeOfMovement;
 	int maxPassengerNumber;
 	double maxBaggageWeight;
-
-public:
+	
+	public:
 	virtual void Input();
 	virtual void Print();
-	Base* Create(ItemType type, List* list);
+	Base* Create(ItemType type, List *list);
 	virtual const char* const GetType() = 0;
-	bool operator < (const Base& b);
-	bool operator > (const Base& b);
+	bool operator < (const Base &b);
+	bool operator > (const Base &b);
 	bool operator == (const int num);
 };
 
 class SubjList : public List
-{
-public:
+{	
+	public:
 	void PrintTransportList();
 	void SortByRangeOfMovement();
 	void SortByMaxSpeed();

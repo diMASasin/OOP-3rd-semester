@@ -1,34 +1,34 @@
 #include"list.h"
 
-typedef enum _ItemType { None, itAuto, itAircraft, itShip } ItemType;
-const char* const TypeName[4] = { "(unknown)", "Auto", "Aircraft", "Ship" };
+typedef enum _ItemType{None, itAuto, itAircraft, itShip} ItemType;
+const char* const TypeName[4] = { "(unknown)", "Auto", "Aircraft", "Ship" };  
 
 class Base : public Node
 {
 	friend class SubjList;
-
-private:
+	
+	private:
 	char model[MAX_STRING_LENGTH];
 	double fuelConsumption;
 	double maxSpeed;
 	double rangeOfMovement;
 	int maxPassengerNumber;
 	double maxBaggageWeight;
-
-protected:
+	
+	protected:
 	ItemType type;
-
-public:
+	
+	public:
 	void Input();
 	void BaseInput();
 	void Print();
 	void BasePrint();
-	Base* Create(ItemType type, List* list);
+	Base* Create(ItemType type, List *list);
 };
 
 class SubjList : public List
-{
-public:
+{	
+	public:
 	void PrintTransportList();
 	void SortByRangeOfMovement();
 	void SortByMaxSpeed();

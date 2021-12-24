@@ -9,67 +9,67 @@ using namespace std;
 
 class DebugList : public SubjList
 {
-public:
-	void PrintTransportList()
-	{
-		int i;
-		Node* item;
-		item = getHead();
-
-		for (i = 0; item != NULL; i++)
+   public:
+    void PrintTransportList()
+    {
+        int i;
+        Node* item;
+        item = getHead();
+        
+        for (i = 0; item != NULL; i++) 
 		{
-			((Base*)item)->Print();
-			item = item->getNext();
-		}
+            ((Base*)item)->Print();
+            item = item->getNext();
+        }
 
-		printf("\n");
-	}
+        printf("\n");
+    }
+    
+    void PrintList()
+    {
+        int i;
+        Node* item;
+        item = getHead();
 
-	void PrintList()
-	{
-		int i;
-		Node* item;
-		item = getHead();
+        cout << "List: " << this << "\tHead: " << getHead() << "\tTail: " << getTail()<< endl << endl;
+        cout << "#\tp" << "\t\t" << "prev" << "\t\t" << "next" << endl;
 
-		cout << "List: " << this << "\tHead: " << getHead() << "\tTail: " << getTail() << endl << endl;
-		cout << "#\tp" << "\t\t" << "prev" << "\t\t" << "next" << endl;
-
-		for (i = 0; item != NULL; i++)
+        for (i = 0; item != NULL; i++) 
 		{
-			PrintNode(item, i);
-			item = item->getNext();
-		}
+            PrintNode(item, i);
+            item = item->getNext();
+        }
 
-		printf("\n");
-	}
-
-	int DoMenu(const char* const s[], int max)
-	{
+        printf("\n");
+    }
+    
+    int DoMenu(const char * const s[], int max)
+	{	
 		int i;
-		for (i = 1; i <= max; i++)
-			printf("%d. %s\n", i, s[i]);
-		printf("> ");
-
-		fflush(stdin);
-		scanf("%d", &i);
-		return i < 1 || i > max ? 0 : i;
+   		for (i = 1; i <= max; i++)
+    		printf("%d. %s\n", i, s[i]);
+   		printf("> ");
+    
+    	fflush(stdin);
+    	scanf("%d", &i);
+    	return i < 1 || i > max ? 0 : i;
 	}
-
-	void PrintNode(const Node* p, int index)
-	{
-		if (!p || index < 0)
-			return;
-
+     
+    void PrintNode(const Node *p, int index)
+    {	
+    	if(!p || index < 0)
+    		return;
+    
 		cout << index << "\t" << p << "\t" << setw(8) << setfill('0') << p->getPrev() << "\t" << p->getNext() << endl;
-	}
-
+    }
+    
 	int InputNumber()
 	{
 		int num;
-
-		while (fflush(stdin), !scanf("%d", &num))
-			printf("РћС€РёР±РєР° РІРІРѕРґР°, РїРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·: ");
-
+	
+		while(fflush(stdin), !scanf("%d", &num))
+			printf("Ошибка ввода, попробуйте еще раз: ");
+	
 		return num;
 	}
 };
@@ -78,152 +78,152 @@ int main()
 {
 	DebugList list;
 	int nodeCount;
-	Node* element;
+	Node *element;
 	int index;
-	Base* p;
+	Base *p;
 	ItemType t;
 	int key = 0;
-	const char* menu[NUM_OF_MENU_ELEMENTS + 1] =
-	{ "(none)", "Р”РѕР±Р°РІРёС‚СЊ РІ РєРѕРЅРµС† СЃРїРёСЃРєР°", "Р’С‹РІРµСЃС‚Рё СЃРїРёСЃРѕРє", "Р Р°Р·РјРµСЂ СЃРїРёСЃРєР°", "РќР°Р№С‚Рё СѓР·РµР» РїРѕ РёРЅРґРµРєСЃСѓ", "РСЃРєР»СЋС‡РёС‚СЊ СѓР·РµР»", "РЈРґР°Р»РёС‚СЊ СѓР·РµР»",
-	"РџРѕР»СѓС‡РёС‚СЊ РёРЅРґРµРєСЃ СѓР·Р»Р° РїРѕ Р°РґСЂРµСЃСѓ", "Р’СЃС‚Р°РІРёС‚СЊ СѓР·РµР»", "РћС‡РёСЃС‚РёС‚СЊ СЃРїРёСЃРѕРє", "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РїРѕ РґР°Р»СЊРЅРѕСЃС‚Рё РґРІРёР¶РµРЅРёСЏ", "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РїРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ СЃРєРѕСЂРѕСЃС‚Рё",
-	"Р’С‹РІРµСЃС‚Рё СЃРїРёСЃРѕРє Р°РґСЂРµСЃРѕРІ", "РќР°Р№С‚Рё РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ РјРµСЃС‚", "РќР°Р№С‚Рё РїРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕРјСѓ РІРµСЃСѓ", "Р’С‹С…РѕРґ" };
+	const char *menu[NUM_OF_MENU_ELEMENTS + 1] =
+        { "(none)", "Добавить в конец списка", "Вывести список", "Размер списка", "Найти узел по индексу", "Исключить узел", "Удалить узел", 
+		"Получить индекс узла по адресу", "Вставить узел", "Очистить список", "Отсортировать по дальности движения", "Отсортировать по максимальной скорости", 
+		"Вывести список адресов", "Найти по количеству мест", "Найти по максимальному весу", "Выход" };
 	system("chcp 1251 > nul");
-
-	while (key != NUM_OF_MENU_ELEMENTS)
+	
+	while(key != NUM_OF_MENU_ELEMENTS)
 	{
 		key = list.DoMenu(menu, NUM_OF_MENU_ELEMENTS);
 		system("cls");
-
-		switch (key)
+		
+		switch(key)
 		{
-		case 1:
-			printf("РљР°РєРѕР№ РІРёРґ С‚СЂР°РЅСЃРїРѕСЂС‚Р° РґРѕР±Р°РІРёС‚СЊ?\n");
-			t = (ItemType)list.DoMenu(TypeName, 3);
-			p = p->Create(t, &list);
-			printf("\nР’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ С‚СЂР°РЅСЃРїРѕСЂС‚Р°:\n");
-			p->Input();
-			list.Add((Node*)p);
-			system("cls");
-			if (t != 0)
-				printf("РЈР·РµР» РґРѕР±Р°РІР»РµРЅ РІ РєРѕРЅРµС† СЃРїРёСЃРєР°.\n\n");
-			else
-				printf("РћС€РёР±РєР° РІРІРѕРґР°.\n\n");
-			break;
-		case 2:
-			list.PrintTransportList();
-			system("pause");
-			system("cls");
-			break;
-		case 3:
-			nodeCount = list.Count();
-			printf("РљРѕР»РёС‡РµСЃС‚РІРѕ СѓР·Р»РѕРІ РІ СЃРїРёСЃРєРµ: %d\n\n", nodeCount);
-			break;
-		case 4:
-			printf("РЈР·РµР» РїРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ РїРѕР»СѓС‡РёС‚СЊ?\n> ");
-			index = list.InputNumber();
-
-			p = (Base*)list.GetItem(index);
-			if (!element)
-			{
+			case 1:
+				printf("Какой вид транспорта добавить?\n");
+				t = (ItemType)list.DoMenu(TypeName, 3);
+          		p = p->Create(t, &list);
+          		printf("\nВведите данные транспорта:\n");
+          		p->Input();
+          		list.Add((Node*)p);
 				system("cls");
-				printf("РЈР·Р»Р° СЃ С‚Р°РєРёРј РёРЅРґРµРєСЃРѕРј РЅРµС‚.\n\n");
+				if(t != 0)
+					printf("Узел добавлен в конец списка.\n\n");
+				else
+					printf("Ошибка ввода.\n\n");
 				break;
-			}
-
-			printf("\n");
-			p->Print();
-			system("pause");
-			system("cls");
-			break;
-		case 5:
-			printf("РЈР·РµР» РїРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ РёСЃРєР»СЋС‡РёС‚СЊ?\n> ");
-			index = list.InputNumber();
-
-			element = list.Remove(index);
-
-			system("cls");
-			if (!element)
-				printf("РЈР·Р»Р° СЃ С‚Р°РєРёРј РёРЅРґРµРєСЃРѕРј РЅРµС‚.\n\n");
-			else
-				printf("РЈР·РµР» РёСЃРєР»СЋС‡РµРЅ.\n\n");
-			break;
-		case 6:
-			printf("РЈР·РµР» РїРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ?\n> ");
-			index = list.InputNumber();
-
-			int result;
-			result = list.Delete(index);
-
-			system("cls");
-			if (!result)
-				printf("РЈР·Р»Р° СЃ С‚Р°РєРёРј РёРЅРґРµРєСЃРѕРј РЅРµС‚.\n\n");
-			else
-				printf("РЈР·РµР» СѓРґР°Р»РµРЅ.\n\n");
-			break;
-		case 7:
-			printf("РРЅРґРµРєСЃ СѓР·Р»Р° РїРѕРґ РєР°РєРёРј Р°РґСЂРµСЃРѕРј РІС‹ С…РѕС‚РёС‚Рµ РїРѕР»СѓС‡РёС‚СЊ?\n> ");
-			scanf("%p", &element);
-			index = list.GetIndex(element);
-
-			system("cls");
-			if (index < 0)
-				printf("РЈР·Р»Р° СЃ С‚Р°РєРёРј Р°РґСЂРµСЃРѕРј РЅРµС‚\n\n");
-			else
-				printf("РРЅРґРµРєСЃ СЌР»РµРјРµРЅС‚Р°: %d\n\n", index);
-			break;
-		case 8:
-			printf("РџРѕРґ РєР°РєРёРј РёРЅРґРµРєСЃРѕРј Р±СѓРґРµС‚ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚?\n> ");
-			index = list.InputNumber();
-
-			printf("РљР°РєРѕР№ РІРёРґ С‚СЂР°РЅСЃРїРѕСЂС‚Р° РґРѕР±Р°РІРёС‚СЊ?\n");
-			t = (ItemType)list.DoMenu(TypeName, 3);
-			p = p->Create(t, &list);
-			printf("\nР’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ С‚СЂР°РЅСЃРїРѕСЂС‚Р°:\n");
-			p->Input();
-			list.Insert((Node*)p, index);
-			system("cls");
-			if (t != 0)
-				printf("РЈР·РµР» РґРѕР±Р°РІР»РµРЅ.\n\n");
-			else
-				printf("РћС€РёР±РєР° РІРІРѕРґР°.\n\n");
-			break;
-		case 9:
-			list.Clear();
-			system("cls");
-			printf("РЎРїРёСЃРѕРє РѕС‡РёС‰РµРЅ.\n\n");
-			break;
-		case 10:
-			list.SortByRangeOfMovement();
-			system("cls");
-			printf("РЎРїРёСЃРѕРє РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅ РїРѕ РґР°Р»СЊРЅРѕСЃС‚Рё РґРІРёР¶РµРЅРёСЏ.\n\n");
-			break;
-		case 11:
-			list.SortByMaxSpeed();
-			system("cls");
-			printf("РЎРїРёСЃРѕРє РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅ РїРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ СЃРєРѕСЂРѕСЃС‚Рё.\n\n");
-			break;
-		case 12:
-			list.PrintList();
-			system("pause");
-			system("cls");
-			break;
-		case 13:
-			list.FindByMaxPassengerNumber();
-			system("pause");
-			system("cls");
-			break;
-		case 14:
-			list.FindByMaxWight();
-			system("pause");
-			system("cls");
-			break;
-		case NUM_OF_MENU_ELEMENTS:
-			break;
-		default:
-			printf("РћС€РёР±РєР° РІРІРѕРґР°.\n\n");
-			break;
+			case 2:				
+				list.PrintTransportList();
+				system("pause");				
+				system("cls");
+				break;
+			case 3:
+				nodeCount = list.Count();
+				printf("Количество узлов в списке: %d\n\n", nodeCount);
+				break;
+			case 4:
+				printf("Узел под каким индексом вы хотите получить?\n> ");
+				index = list.InputNumber();
+						
+				p = (Base*)list.GetItem(index);
+				if(!element)
+				{
+					system("cls");
+					printf("Узла с таким индексом нет.\n\n");
+					break;	
+				}
+				
+				printf("\n");
+				p->Print();
+				system("pause");
+				system("cls");
+				break;
+			case 5:
+				printf("Узел под каким индексом вы хотите исключить?\n> ");
+				index = list.InputNumber();
+				
+				element = list.Remove(index);
+				
+				system("cls");
+				if(!element)
+					printf("Узла с таким индексом нет.\n\n");
+				else
+					printf("Узел исключен.\n\n");
+				break;
+			case 6:
+				printf("Узел под каким индексом вы хотите удалить?\n> ");
+				index = list.InputNumber();
+				
+				int result;
+				result = list.Delete(index);
+				
+				system("cls");
+				if(!result)
+					printf("Узла с таким индексом нет.\n\n");
+				else
+					printf("Узел удален.\n\n");
+				break;
+			case 7: 
+				printf("Индекс узла под каким адресом вы хотите получить?\n> ");
+				scanf("%p", &element);
+				index = list.GetIndex(element);
+				
+				system("cls");
+				if(index < 0)
+					printf("Узла с таким адресом нет\n\n");
+				else
+					printf("Индекс элемента: %d\n\n", index);
+				break;
+			case 8:
+				printf("Под каким индексом будет новый элемент?\n> ");
+				index = list.InputNumber();
+				
+				printf("Какой вид транспорта добавить?\n");
+				t = (ItemType)list.DoMenu(TypeName, 3);
+          		p = p->Create(t, &list);
+          		printf("\nВведите данные транспорта:\n");
+          		p->Input();
+          		list.Insert((Node*)p, index);
+				system("cls");
+				if(t != 0)
+					printf("Узел добавлен.\n\n");
+				else
+					printf("Ошибка ввода.\n\n");
+				break;
+			case 9:
+				list.Clear();
+				system("cls");
+				printf("Список очищен.\n\n");
+				break;
+			case 10:
+				list.SortByRangeOfMovement();
+				system("cls");
+				printf("Список отсортирован по дальности движения.\n\n");
+				break;
+			case 11:
+				list.SortByMaxSpeed();
+				system("cls");
+				printf("Список отсортирован по максимальной скорости.\n\n");
+				break;	
+			case 12:
+				list.PrintList();
+				system("pause");
+				system("cls");
+				break;
+			case 13:
+				list.FindByMaxPassengerNumber();
+				system("pause");
+				system("cls");
+				break;
+			case 14:
+				list.FindByMaxWight();
+				system("pause");
+				system("cls");
+				break;
+			case NUM_OF_MENU_ELEMENTS:
+				break;
+			default:
+				printf("Ошибка ввода.\n\n");
+				break;
 		}
 	}
-
+	
 	return 0;
 }

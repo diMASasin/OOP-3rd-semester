@@ -3,214 +3,214 @@
 
 using namespace std;
 
-const string TypeName[4] =
-{ "(unknown)", "Auto", "Aircraft", "Ship" };
+const string TypeName[4]= 
+            { "(unknown)", "Auto", "Aircraft", "Ship" };
 
 
-Node::Node()
-{
-	prev = NULL;
-	next = NULL;
-	list = NULL;
-}
-
-Node::~Node()
-{
-	if (list)
-		list->Remove(this);
-}
-
-List::List()
-{
-	head = NULL;
-	tail = NULL;
-}
-
-List::~List()
-{
-	Clear();
-}
-
-Node* Node::getNext() const
-{
-	return next;
-}
-
-Node* Node::getPrev() const
-{
-	return prev;
-}
-
-Node* List::getHead() const
-{
-	return head;
-}
-
-Node* List::getTail() const
-{
-	return tail;
-}
-
-List* Node::IsInList() const
-{
-	return list;
-}
-
-void List::Add(Node* element)
-{
-	if (!element || element->list)
-		return;
-
-	element->list = this;
-
-	if (head == NULL && tail == NULL)
+	Node::Node()
 	{
-		head = element;
-		tail = element;
-		return;
+		prev = NULL;
+		next = NULL;
+		list = NULL;
+	}
+	
+	Node::~Node()
+	{
+		if(list)
+			list->Remove(this);
 	}
 
-	tail->next = element;
-	element->prev = tail;
-	tail = element;
-	element->next = NULL;
-}
-
-void List::Insert(Node* newElement, int index)
-{
-	if (!newElement || index < 0 || newElement->list)
-		return;
-
-	Node* item;
-	item = GetItem(index);
-
-	if (item)
+	List::List()
 	{
-		if (item->prev != NULL)
-			item->prev->next = newElement;
-		else
-			head = newElement;
-
-		newElement->next = item;
-		newElement->prev = item->prev;
-		item->prev = newElement;
-		newElement->list = this;
+		head = NULL;
+		tail = NULL;
 	}
-	else
+	
+	List::~List()
 	{
-		Add(newElement);
+		Clear();
 	}
-}
-
-int List::Count()
-{
-	Node* currentNode;
-	int count = 0;
-	currentNode = head;
-
-	if (!currentNode)
-		return count;
-
-	while (currentNode)
+	
+	Node* Node::getNext() const
 	{
-		count++;
-		currentNode = currentNode->next;
+		return next;
+	}
+	
+	Node* Node::getPrev() const
+	{
+		return prev;
+	}
+	
+	Node* List::getHead() const
+	{
+		return head;
+	}
+	
+	Node* List::getTail() const
+	{
+		return tail;
+	}
+	
+	List* Node::IsInList() const
+	{
+		return list;
 	}
 
-	return count;
-}
+    void List::Add(Node* element)
+    {
+    	if(!element || element->list)
+    		return;
+    		
+    	element->list = this;
+    	
+        if (head == NULL && tail == NULL) 
+		{
+            head = element;
+            tail = element;
+            return;
+        }
 
-Node* List::GetItem(int index)
-{
-	if (index < 0)
-		return NULL;
+        tail->next = element;
+        element->prev = tail;
+        tail = element;
+        element->next = NULL;
+    }
 
-	Node* item;
-	int i;
+    void List::Insert(Node* newElement, int index)
+    {
+    	if(!newElement || index < 0 || newElement->list)
+    		return;
+    	
+        Node* item;
+        item = GetItem(index);
 
-	item = head;
+        if (item) 
+		{
+            if (item->prev != NULL)
+                item->prev->next = newElement;
+            else
+                head = newElement;
+                
+            newElement->next = item;
+            newElement->prev = item->prev;
+            item->prev = newElement;
+    		newElement->list = this;
+        }
+        else 
+		{
+            Add(newElement);
+        }
+    }
 
-	for (i = 0; i < index; i++)
-	{
-		if (!item)
-			return NULL;
+    int List::Count()
+    {
+		Node* currentNode;
+        int count = 0;
+        currentNode = head;
+		
+		if(!currentNode)
+			return count;
+		
+        while (currentNode) 
+		{
+            count++;
+            currentNode = currentNode->next;
+        }
 
-		item = item->next;
-	}
+        return count;
+    }
 
-	return item;
-}
+    Node* List::GetItem(int index)
+    {
+    	if(index < 0)
+    		return NULL;
+    	
+        Node* item;
+        int i;
 
-Node* List::Remove(int index)
-{
-	if (index < 0)
-		return NULL;
+        item = head;
 
-	Node* item;
-	item = GetItem(index);
+        for (i = 0; i < index; i++)
+        {
+        	if(!item)
+        		return NULL;
+        	
+        	item = item->next;
+		}
 
-	Remove(item);
-	return item;
-}
+        return item;
+    }
 
-Node* List::Remove(Node* item)
-{
-	if (!item || item->list != this)
-		return NULL;
+    Node* List::Remove(int index)
+    {
+    	if(index < 0)
+    		return NULL;
+    		
+        Node* item;
+        item = GetItem(index);
 
-	if (item->prev != NULL)
-		item->prev->next = item->next;
-	if (item->next != NULL)
-		item->next->prev = item->prev;
+		Remove(item);
+        return item;
+    }
+    
+    Node* List::Remove(Node* item)
+    {
+        if (!item || item->list != this)
+            return NULL;
 
-	if (item == head)
-		head = item->next;
-	if (item == tail)
-		tail = item->prev;
+        if (item->prev != NULL)
+            item->prev->next = item->next;
+        if (item->next != NULL)
+            item->next->prev = item->prev;
 
-	item->next = NULL;
-	item->prev = NULL;
-	item->list = NULL;
+        if (item == head)
+            head = item->next;
+        if (item == tail)
+            tail = item->prev;
+            
+        item->next = NULL;
+        item->prev = NULL;
+        item->list = NULL;
 
-	return item;
-}
+        return item;
+    }
 
-int List::Delete(int index)
-{
-	if (index < 0)
-		return 0;
+    int List::Delete(int index)
+    {
+    	if(index < 0)
+    		return 0;
+    		
+        Node* item;
 
-	Node* item;
+        item = Remove(index);
+        if (!item)
+            return 0;
 
-	item = Remove(index);
-	if (!item)
-		return 0;
+        delete item;
+        return 1;
+    }
 
-	delete item;
-	return 1;
-}
+    int List::GetIndex(Node* element)
+    {
+    	if(!element)
+    		return -1;
+    		
+        Node* item;
+        item = head;
+        int i;
 
-int List::GetIndex(Node* element)
-{
-	if (!element)
-		return -1;
+        for (i = 0; item != NULL; i++) 
+		{
+            if (item == element)
+                return i;
 
-	Node* item;
-	item = head;
-	int i;
+            item = item->next;
+        }
+        return -1;
+    }
 
-	for (i = 0; item != NULL; i++)
-	{
-		if (item == element)
-			return i;
-
-		item = item->next;
-	}
-	return -1;
-}
-
-void List::Clear()
-{
-	while (head)
-		Delete(0);
-}
+    void List::Clear()
+    {
+        while (head)
+            Delete(0);
+    }

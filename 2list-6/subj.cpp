@@ -5,265 +5,265 @@
 
 class Auto : public Base
 {
-private:
+	private:
 	char brand[MAX_STRING_LENGTH];
 	char color[MAX_STRING_LENGTH];
-
-public:
-	virtual const char* const GetType() { return "Auto"; }
-
+	
+	public:
+	virtual const char* const GetType(){return "Auto";}
+		
 	virtual void Print()
-	{
+	{	
 		Base::Print();
-		printf("Ð‘Ñ€ÐµÐ½Ð´: %s\n", brand);
-		printf("Ð¦Ð²ÐµÑ‚: %s\n\n", color);
+		printf("Áðåíä: %s\n", brand);
+		printf("Öâåò: %s\n\n", color);
 	}
-
+	
 	virtual void Input()
 	{
 		Base::Input();
-		printf("Ð‘Ñ€ÐµÐ½Ð´: ");
+		printf("Áðåíä: ");
 		scanf("%s", brand);
-		printf("Ð¦Ð²ÐµÑ‚: ");
+		printf("Öâåò: ");
 		scanf("%s", color);
 	}
 };
 
 class Aircraft : public Base
 {
-private:
+	private:
 	int numberOfCrewMembers;
 	int numberOfEngines;
 	double maxHeight;
-
-public:
-	virtual const char* const GetType() { return "Aircraft"; }
-
+	
+	public:
+	virtual const char* const GetType(){return "Aircraft";}
+	
 	virtual void Print()
-	{
+	{	
 		Base::Print();
-		printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ‡Ð»ÐµÐ½Ð¾Ð² ÑÐºÐ¸Ð¿Ð°Ð¶Ð°: %d\n", numberOfCrewMembers);
-		printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð´Ð²Ð¸Ð³Ð°Ñ‚ÐµÐ»ÐµÐ¹: %d\n", numberOfEngines);
-		printf("ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ð²Ñ‹ÑÐ¾Ñ‚Ð°: %lg\n\n", maxHeight);
+		printf("Êîëè÷åñòâî ÷ëåíîâ ýêèïàæà: %d\n", numberOfCrewMembers);
+		printf("Êîëè÷åñòâî äâèãàòåëåé: %d\n", numberOfEngines);
+		printf("Ìàêñèìàëüíàÿ âûñîòà: %lg\n\n", maxHeight);
 	}
-
+	
 	virtual void Input()
 	{
-		Base::Input();
-		printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ‡Ð»ÐµÐ½Ð¾Ð² ÑÐºÐ¸Ð¿Ð°Ð¶Ð°: ");
+		Base::Input();	
+		printf("Êîëè÷åñòâî ÷ëåíîâ ýêèïàæà: ");
 		scanf("%d", &numberOfCrewMembers);
-		printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð´Ð²Ð¸Ð³Ð°Ñ‚ÐµÐ»ÐµÐ¹: ");
+		printf("Êîëè÷åñòâî äâèãàòåëåé: ");
 		scanf("%d", &numberOfEngines);
-		printf("ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ð²Ñ‹ÑÐ¾Ñ‚Ð°: ");
+		printf("Ìàêñèìàëüíàÿ âûñîòà: ");
 		scanf("%lg", &maxHeight);
 	}
 };
 
 class Ship : public Base
 {
-private:
+	private:
 	int numberOfCrewMembers;
 	int numberOfEngines;
 	char name[MAX_STRING_LENGTH];
 	char homePort[MAX_STRING_LENGTH];
-
-public:
-	virtual const char* const GetType() { return "Ship"; }
-
+	
+	public:
+	virtual const char* const GetType(){return "Ship";}
+	
 	virtual void Print()
 	{
-		Base::Print();
-		printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ‡Ð»ÐµÐ½Ð¾Ð² ÑÐºÐ¸Ð¿Ð°Ð¶Ð°: %d\n", numberOfCrewMembers);
-		printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð´Ð²Ð¸Ð³Ð°Ñ‚ÐµÐ»ÐµÐ¹: %d\n", numberOfEngines);
-		printf("ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ: %s\n", name);
-		printf("ÐŸÐ¾Ñ€Ñ‚ Ð¿Ñ€Ð¸Ð¿Ð¸ÑÐºÐ¸: %s\n\n", homePort);
+		Base::Print();	
+		printf("Êîëè÷åñòâî ÷ëåíîâ ýêèïàæà: %d\n", numberOfCrewMembers);
+		printf("Êîëè÷åñòâî äâèãàòåëåé: %d\n", numberOfEngines);
+		printf("Íàçâàíèå: %s\n", name);
+		printf("Ïîðò ïðèïèñêè: %s\n\n", homePort);
 	}
-
+	
 	virtual void Input()
 	{
 		Base::Input();
-		printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ‡Ð»ÐµÐ½Ð¾Ð² ÑÐºÐ¸Ð¿Ð°Ð¶Ð°: ");
+		printf("Êîëè÷åñòâî ÷ëåíîâ ýêèïàæà: ");
 		scanf("%d", &numberOfCrewMembers);
-		printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð´Ð²Ð¸Ð³Ð°Ñ‚ÐµÐ»ÐµÐ¹: ");
+		printf("Êîëè÷åñòâî äâèãàòåëåé: ");
 		scanf("%d", &numberOfEngines);
-		printf("ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ: ");
+		printf("Íàçâàíèå: ");
 		scanf("%s", name);
-		printf("ÐŸÐ¾Ñ€Ñ‚ Ð¿Ñ€Ð¸Ð¿Ð¸ÑÐºÐ¸: ");
+		printf("Ïîðò ïðèïèñêè: ");
 		scanf("%s", homePort);
 	}
 };
 
 void Base::Print()
-{
+{		
 	printf("%s:\n", GetType());
-	printf("ÐœÐ¾Ð´ÐµÐ»ÑŒ: %s\n", model);
-	printf("Ð Ð°ÑÑ…Ð¾Ð´ Ñ‚Ð¾Ð¿Ð»Ð¸Ð²Ð°: %lg\n", fuelConsumption);
-	printf("ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ: %lg\n", maxSpeed);
-	printf("ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ð´Ð°Ð»ÑŒÐ½Ð¾ÑÑ‚ÑŒ Ð´Ð²Ð¸Ð¶ÐµÐ½Ð¸Ñ: %lg\n", rangeOfMovement);
-	printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¼ÐµÑÑ‚: %d\n", maxPassengerNumber);
-	printf("ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð²ÐµÑ Ð±Ð°Ð³Ð°Ð¶Ð°: %lg\n", maxBaggageWeight);
-}
+	printf("Ìîäåëü: %s\n", model);
+	printf("Ðàñõîä òîïëèâà: %lg\n", fuelConsumption);
+	printf("Ìàêñèìàëüíàÿ ñêîðîñòü: %lg\n", maxSpeed);
+	printf("Ìàêñèìàëüíàÿ äàëüíîñòü äâèæåíèÿ: %lg\n", rangeOfMovement);
+	printf("Êîëè÷åñòâî ìåñò: %d\n", maxPassengerNumber);
+	printf("Ìàêñèìàëüíûé âåñ áàãàæà: %lg\n", maxBaggageWeight);
+} 
 
-Base* Base::Create(ItemType type, List* list)
+Base* Base::Create(ItemType type, List *list)
 {
-	if (!list)
-		return NULL;
-
+	if(!list)
+    	return NULL;
+    		
 	Base* p;
-	switch (type)
-	{
-	case itAuto:
-		p = new Auto();
-		break;
-	case itAircraft:
-		p = new Aircraft();
-		break;
-	case itShip:
-		p = new Ship();
-		break;
-	default:
-		printf("ÐžÑˆÐ¸Ð±ÐºÐ°!\n");
-		return NULL;
-	}
-
-	return p;
+   switch (type)
+   {
+     	case itAuto:
+        	p = new Auto();
+        	break;
+      	case itAircraft:  
+      		p = new Aircraft();
+      		break;
+      	case itShip:
+      		p = new Ship();
+      		break;
+      	default:
+      		printf("Îøèáêà!\n");
+      		return NULL;
+   }
+    
+    return p;
 }
 
 void Base::Input()
-{
-	printf("ÐœÐ¾Ð´ÐµÐ»ÑŒ: ");
+{	
+	printf("Ìîäåëü: ");
 	scanf("%s", model);
-	printf("Ð Ð°ÑÑ…Ð¾Ð´ Ñ‚Ð¾Ð¿Ð»Ð¸Ð²Ð°: ");
+	printf("Ðàñõîä òîïëèâà: ");
 	scanf("%lg", &fuelConsumption);
-	printf("ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ: ");
+	printf("Ìàêñèìàëüíàÿ ñêîðîñòü: ");
 	scanf("%lg", &maxSpeed);
-	printf("ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ð´Ð°Ð»ÑŒÐ½Ð¾ÑÑ‚ÑŒ Ð´Ð²Ð¸Ð¶ÐµÐ½Ð¸Ñ: ");
+	printf("Ìàêñèìàëüíàÿ äàëüíîñòü äâèæåíèÿ: ");
 	scanf("%lg", &rangeOfMovement);
-	printf("ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¼ÐµÑÑ‚: ");
+	printf("Êîëè÷åñòâî ìåñò: ");
 	scanf("%d", &maxPassengerNumber);
-	printf("ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð²ÐµÑ Ð±Ð°Ð³Ð°Ð¶Ð°: ");
+	printf("Ìàêñèìàëüíûé âåñ áàãàæà: ");
 	scanf("%lg", &maxBaggageWeight);
 }
 
 void SubjList::PrintTransportList()
-{
-	Node* p;
-	int i = 0;
-	for (p = getHead(); p; p = p->getNext())
-	{
-		printf("%d. ", i);
-		((Base*)p)->Print();
-		i++;
-	}
-	printf("\n");
+{ 	
+   	Node *p;  
+   	int i = 0;
+   	for (p = getHead(); p; p = p->getNext())
+   	{
+   		printf("%d. ", i);
+   		((Base*)p)->Print();
+   		i++;
+	}             
+   	printf("\n");
 }
 
 void SubjList::SortByRangeOfMovement()
 {
-	if (!getHead())
+	if(!getHead())
 	{
-		printf("Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿ÑƒÑÑ‚.\n\n");
+		printf("Ñïèñîê ïóñò.\n\n");
 		return;
 	}
-
-	Base* i, * j;
-	Node* last;
-	last = getTail();
-
-	for (i = (Base*)getHead(); i->getNext(); i = (Base*)i->getNext())
-	{
-		for (j = (Base*)getHead(); j->getNext() && (Node*)j != last; j = (Base*)j->getNext())
-		{
-			if (j->rangeOfMovement > ((Base*)j->getNext())->rangeOfMovement)
-			{
-				Node* temp;
-				temp = j->getNext();
-				Remove(j->getNext());
-				Insert(temp, GetIndex((Node*)j));
-				if (temp == last)
-					last = (Node*)j;
-				if (j == i)
-					i = (Base*)temp;
-				else if (temp == (Node*)i)
-					i = j;
-				j = (Base*)temp;
-			}
-		}
-		last = last->getPrev();
-	}
+		
+  Base *i, *j; 
+  Node *last;
+  last = getTail();
+  
+  for (i = (Base*)getHead(); i->getNext(); i = (Base*)i->getNext())
+  {
+    for (j = (Base*)getHead(); j->getNext() && (Node*)j != last; j = (Base*)j->getNext())
+    {
+      if (j->rangeOfMovement > ((Base*)j->getNext())->rangeOfMovement)
+      {
+      		Node *temp;
+      		temp = j->getNext();
+      		Remove(j->getNext());
+			Insert(temp, GetIndex((Node*)j));
+      		if(temp == last)
+      			last = (Node*)j;
+      		if(j == i)
+      			i = (Base*)temp;
+      		else if(temp == (Node*)i)
+      			i = j;
+			j = (Base*)temp;
+      }
+  	}
+  	last = last->getPrev();
+  }
 }
 
 void SubjList::SortByMaxSpeed()
 {
-	if (!getHead())
+	if(!getHead())
 	{
-		printf("Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿ÑƒÑÑ‚.\n\n");
+		printf("Ñïèñîê ïóñò.\n\n");
 		return;
 	}
-
-	Base* i, * j;
-	Node* last;
-	last = getTail();
-
-	for (i = (Base*)getHead(); i->getNext(); i = (Base*)i->getNext())
-	{
-		for (j = (Base*)getHead(); j->getNext() && (Node*)j != last; j = (Base*)j->getNext())
-		{
-			if (j->maxSpeed > ((Base*)j->getNext())->maxSpeed)
-			{
-				Node* temp;
-				temp = j->getNext();
-				Remove(j->getNext());
-				Insert(temp, GetIndex((Node*)j));
-				if (temp == last)
-					last = (Node*)j;
-				if (j == i)
-					i = (Base*)temp;
-				else if (temp == (Node*)i)
-					i = j;
-				j = (Base*)temp;
-			}
-		}
-		last = last->getPrev();
-	}
+		
+  Base *i, *j; 
+  Node *last;
+  last = getTail();
+  
+  for (i = (Base*)getHead(); i->getNext(); i = (Base*)i->getNext())
+  {
+    for (j = (Base*)getHead(); j->getNext() && (Node*)j != last; j = (Base*)j->getNext())
+    {
+      if (j->maxSpeed > ((Base*)j->getNext())->maxSpeed)
+      {
+      		Node *temp;
+      		temp = j->getNext();
+      		Remove(j->getNext());
+			Insert(temp, GetIndex((Node*)j));
+      		if(temp == last)
+      			last = (Node*)j;
+      		if(j == i)
+      			i = (Base*)temp;
+      		else if(temp == (Node*)i)
+      			i = j;
+			j = (Base*)temp;
+      }
+  	}
+  	last = last->getPrev();
+  }
 }
 
 void SubjList::FindByMaxPassengerNumber()
 {
-	if (!getHead())
+	if(!getHead())
 	{
-		printf("Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿ÑƒÑÑ‚.\n\n");
+		printf("Ñïèñîê ïóñò.\n\n");
 		return;
 	}
-
-	printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸ÑÐºÐ¾Ð¼Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¼ÐµÑÑ‚: ");
+		
+	printf("Ââåäèòå èñêîìîå ÷èñëî ìåñò: ");
 	int num;
 	scanf("%d", &num);
-
-	Base* i;
+	
+	Base *i;
 	for (i = (Base*)getHead(); i; i = (Base*)i->getNext())
-	{
-		if (i->maxPassengerNumber == num)
-			i->Print();
-	}
+  	{
+  		if(i->maxPassengerNumber == num)
+  			i->Print();
+  	}
 }
 
 void SubjList::FindByMaxWight()
 {
-	if (!getHead())
+	if(!getHead())
 	{
-		printf("Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿ÑƒÑÑ‚.\n\n");
+		printf("Ñïèñîê ïóñò.\n\n");
 		return;
 	}
-
-	printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸ÑÐºÐ¾Ð¼Ñ‹Ð¹ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾ Ð´Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð¼Ñ‹Ð¹ Ð²ÐµÑ: ");
+		
+	printf("Ââåäèòå èñêîìûé ìàêñèìàëüíî äîïóñòèìûé âåñ: ");
 	int num;
 	scanf("%d", &num);
-
-	Base* i;
+	
+	Base *i;
 	for (i = (Base*)getHead(); i; i = (Base*)i->getNext())
-	{
-		if (i->maxBaggageWeight == num)
-			i->Print();
-	}
+  	{
+  		if(i->maxBaggageWeight == num)
+  			i->Print();
+  	}
 }
